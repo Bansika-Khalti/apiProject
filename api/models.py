@@ -1,3 +1,9 @@
-from django.db import models
+import django.db
 
-# Create your models here.
+class Blog(django.db.models.Model):
+    title = django.db.models.CharField(max_length=200)
+    content = django.db.models.TextField()
+
+    # Fixed the double underscores and the space
+    def __str__(self):
+        return self.title
